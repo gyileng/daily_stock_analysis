@@ -51,6 +51,8 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
+          sudo apt-get update
+          sudo apt-get install -y wkhtmltopdf xvfb libfontconfig
       
       - name: 创建必要目录
         run: |
@@ -368,6 +370,7 @@ jobs:
           # 可选值: tencent, akshare_sina, efinance, akshare_em, tushare
           # 如果有 Tushare Pro 高积分账号，可将 tushare 放在首位
           REALTIME_SOURCE_PRIORITY: ${{ vars.REALTIME_SOURCE_PRIORITY || 'tencent,akshare_sina,efinance,akshare_em' }}
+          MARKDOWN_TO_IMAGE_CHANNELS: ${{ vars.MARKDOWN_TO_IMAGE_CHANNELS || 'telegram' }}
           
         run: |
           # 处理 LITELLM YAML 配置文件
