@@ -51,7 +51,6 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-          npm i -g markdown-to-file
       
       - name: 创建必要目录
         run: |
@@ -369,9 +368,6 @@ jobs:
           # 可选值: tencent, akshare_sina, efinance, akshare_em, tushare
           # 如果有 Tushare Pro 高积分账号，可将 tushare 放在首位
           REALTIME_SOURCE_PRIORITY: ${{ vars.REALTIME_SOURCE_PRIORITY || 'tencent,akshare_sina,efinance,akshare_em' }}
-          MARKDOWN_TO_IMAGE_CHANNELS: ${{ vars.MARKDOWN_TO_IMAGE_CHANNELS || 'telegram' }}
-          MD2IMG_ENGINE: ${{ vars.MD2IMG_ENGINE || 'markdown-to-file' }}
-          MARKDOWN_TO_IMAGE_MAX_CHARS: ${{ vars.MARKDOWN_TO_IMAGE_MAX_CHARS }}
           
         run: |
           # 处理 LITELLM YAML 配置文件
